@@ -1,0 +1,100 @@
+:root {
+    font-size: 16px;
+    --color-default: ;
+    --color-primary: ;
+    --color-secondary: ;
+    --color-white: ;
+    --color-white-secondary: ;
+    --color-pink: ;
+    --color-pink-secondary: ;
+    --color-gray: ;
+    --font-primary: ;
+    --font-secondary: ;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+font-family: var(--font-primary);
+color: var(--color-default); 
+background-color: var(--color-white); 
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-secondary);
+}
+
+section {
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+.section header {
+    text-align: center;
+    padding: 40px;
+}
+
+.section header h2 {
+    text-align: center;
+    padding: 40px;
+}
+
+.section-header p {
+   margin: 10px 0 0 0;
+   padding: 0;
+   font-size: 32px;
+   line-height: 42px;
+   font-weight: 700;
+   color: var(--color-default)
+}
+
+.section-heading {
+    font-size: 3rem;
+    font-weight: bolder;
+    color: var(--color-default)
+ }
+
+ #cover {
+    width: 100%;
+    height: 90vh;
+    padding-top: 50px;
+}
+
+ #cover h1 {
+    color: var(--color-default);
+    margin: 0;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+}
+
+#cover h2 {
+    color: var(--color-white);
+    font-size: 24px;
+    margin: 10px 0 30px 0;
+}
+
+main {
+    margin-left: 8rem;
+    padding: 1rem;
+}
+
+.about {
+    width: 100%;
+    height: fit-content;
+    padding: 40px 0;
+}
+
+.about .container {
+    padding: 40px 0;
+}
+
+
+
