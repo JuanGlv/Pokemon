@@ -1,15 +1,17 @@
 :root {
+    scroll-behavior: smooth;
     font-size: 16px;
-    --color-default: ;
-    --color-primary: ;
-    --color-secondary: ;
-    --color-white: ;
-    --color-white-secondary: ;
-    --color-pink: ;
-    --color-pink-secondary: ;
-    --color-gray: ;
-    --font-primary: ;
-    --font-secondary: ;
+    --color-default: #23272a;
+    --color-primary: #6649b8;
+    --color-secondary: #16df7e;
+    --color-white: #f1f1f1f1;
+    --color-white-secondary: #ececec;
+    --color-pink: #ff7eee;
+    --color-pink-secondary: #df49a6 ;
+    --color-gray: #85ea1;
+    --font-primary: "Open Sans, sans-sherif";
+    --font-secondary: "Nunito sans-sherif";
+    --transition-speed: 600ms;
   }
 
 * {
@@ -61,6 +63,90 @@ section {
     color: var(--color-default)
  }
 
+.navbar {
+position: fixed;
+background-color: var(--color-default);
+transition: width 600ms ease;
+height: 200%;
+}
+
+
+.navbar-nav {
+list-style: none;
+padding: 0;
+margin: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+height: 100%;
+}
+
+.nav-item {
+width: 100%;
+
+}
+.nav-link,
+.game-link {
+display: flex;
+align-items: center;
+height: 5rem;
+color: var(--color-white);
+text-decoration: none;
+filter: grayscale(100%) opacity(0.7);
+transition: var(--transition-speed);
+}
+
+
+.game-link,
+.game-link:hover,
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active {
+    filter: grayscale(0%) opacity(1);
+    background: var(--color-default);
+    color: var(--color-secondary);
+}
+
+.link-text {
+    display: none;
+    margin-left: 1rem;
+}
+
+.game-link svg,
+.nav-link svg {
+width: 2rem;
+min-width: 2rem;
+margin: 0 1.5rem;
+}
+
+.fa-primary {
+    color: var(--color-red);
+}
+
+.fa-secondary {
+    color: var(--color-red-secondary);
+}
+
+.fa-primary, .fa-secondary {
+transition: var(--transition-speed);
+}
+
+.logo {
+margin-bottom: 1rem;
+color: var(--color-white-secondary);
+background: var(--color-default);
+width: 100%;
+}
+
+.logo svg {
+    transform: rotate(0deg);
+    transition: var(--transition-speed);
+}
+
+.navbar:hover .logo svg {
+    transform: rotate(-180deg);
+}
+
  #cover {
     width: 100%;
     height: 90vh;
@@ -92,9 +178,114 @@ main {
     padding: 40px 0;
 }
 
-.about .container {
-    padding: 40px 0;
+.about .section-title {
+    margin-top: -0.5rem;
+
 }
 
+.about .subcover {
+    padding-left: -3rem;
+    margin-top: 10rem;
+}
+
+.about .section-subtitle {
+    margin-top: 4rem;
+    text-align: center;
+
+}
+
+.about .section-subtitle .caption {
+    margin-top: -0.1rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    color: black;
+}
+
+.about .section-subtitle h2 {
+    color: var(--color-default);
+    text-shadow: 4px 4px 5px var(--color-primary);
+}
+
+.about .section-subtitle p {
+    text-align: justify;
+    color: var(--color-default);
+}
+
+.about .icon-box {
+    margin: 2.5rem auto;
+}
+
+.about .icon-box,
+.about .icon-box + .icon-box {
+    margin-top: 25px;
+}
+
+.about .icon-box .icon {
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--color-white-secondary);
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+.about .icon-box .title {
+    margin-left: 80px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.about .icon-box .title {
+    color: var(--color-pink-secondary);
+    transition: 0.3s;
+}
+
+.about .icon-box .title :hover {
+    color: var(--color-pink);
+    cursor: default;
+}
+
+.about .icon-box .description {
+    margin-left: 80px;
+    margin-right: 25px;
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 20px;
+} 
+
+.team {
+padding-top: 5rem;
+}
+
+.team .member {
+text-align: center;
+margin-bottom: 20px;
+padding: 30px 20px;
+}
+
+.team .member img {
+max-width: 30%;
+margin: 0 0 30px 0;
+border-radius: 50;
+}
+
+.team .member h4 {
+font-weight: 700;
+margin-bottom: 2px;
+font-size: 30px;
+}
+
+.footer {
+    color: var(--color-default);
+font-size: 14px;
+position: relative;
+height: 30vh;
+}
 
 
