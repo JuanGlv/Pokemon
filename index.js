@@ -207,6 +207,7 @@ function animate() {
   const animationId = window.requestAnimationFrame(animate)
   renderables.forEach((renderable) => {
     renderable.draw()
+    console.log("btuh")
   })
 
   let moving = true
