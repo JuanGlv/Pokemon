@@ -113,7 +113,7 @@ class Monster extends Sprite {
   }
 
   faint() {
-    document.querySelector('#dialogueBox').innerHTML = this.name + ' fainted!'
+    document.querySelector('#dialogueBox').innerHTML = this.name + ' ha sido derrotado!'
     gsap.to(this.position, {
       y: this.position.y + 20
     })
@@ -127,7 +127,7 @@ class Monster extends Sprite {
   attack({ attack, recipient, renderedSprites }) {
     document.querySelector('#dialogueBox').style.display = 'block'
     document.querySelector('#dialogueBox').innerHTML =
-      this.name + ' used ' + attack.name
+      this.name + ' uso ' + attack.name
 
     let healthBar = '#enemyHealthBar'
     if (this.isEnemy) healthBar = '#playerHealthBar'
@@ -138,16 +138,16 @@ class Monster extends Sprite {
     recipient.health -= attack.damage
 
     switch (attack.name) {
-      case 'Fireball':
+      case 'Llamarada':
         audio.initFireball.play()
-        const fireballImage = new Image()
-        fireballImage.src = './img/fireball.png'
-        const fireball = new Sprite({
+        const LlamaradaImage = new Image()
+        LlamaradaImage.src = './img/fireball.png'
+        const Llamarada = new Sprite({
           position: {
             x: this.position.x,
             y: this.position.y
           },
-          image: fireballImage,
+          image: LlamaradaImage,
           frames: {
             max: 4,
             hold: 10
@@ -155,9 +155,56 @@ class Monster extends Sprite {
           animate: true,
           rotation
         })
-        renderedSprites.splice(1, 0, fireball)
+        renderedSprites.splice(1, 0, Llamarada)
 
-        gsap.to(fireball.position, {
+        gsap.to(Llamarada.position, {
+          x: recipient.position.x,
+          y: recipient.position.y,
+          onComplete: () => {
+            // Enemy actually gets hit
+            audio.fireballHit.play()
+            gsap.to(healthBar, {
+              width: recipient.health + '%'
+            })
+
+            gsap.to(recipient.position, {
+              x: recipient.position.x + 10,
+              yoyo: true,
+              repeat: 5,
+              duration: 0.08
+            })
+
+            gsap.to(recipient, {
+              opacity: 0,
+              repeat: 5,
+              yoyo: true,
+              duration: 0.08
+            })
+            renderedSprites.splice(1, 1)
+          }
+        })
+        
+        break
+        case 'Hidrobomba':
+        audio.initFireball.play()
+        const hidrobombaImage = new Image()
+        hidrobombaImage.src = './img/waterfall.png'
+        const Hidrobomba = new Sprite({
+          position: {
+            x: this.position.x,
+            y: this.position.y
+          },
+          image: hidrobombaImage,
+          frames: {
+            max: 4,
+            hold: 10
+          },
+          animate: true,
+          rotation
+        })
+        renderedSprites.splice(1, 0, Hidrobomba)
+
+        gsap.to(Hidrobomba.position, {
           x: recipient.position.x,
           y: recipient.position.y,
           onComplete: () => {
@@ -185,7 +232,54 @@ class Monster extends Sprite {
         })
 
         break
-      case 'Tackle':
+        case 'Trueno':
+        audio.initFireball.play()
+        const TruenoImage = new Image()
+        TruenoImage.src = './img/thunderball.png'
+        const Trueno = new Sprite({
+          position: {
+            x: this.position.x,
+            y: this.position.y
+          },
+          image: TruenoImage,
+          frames: {
+            max: 4,
+            hold: 10
+          },
+          animate: true,
+          rotation
+        })
+        renderedSprites.splice(1, 0, Trueno)
+
+        gsap.to(Trueno.position, {
+          x: recipient.position.x,
+          y: recipient.position.y,
+          onComplete: () => {
+            // Enemy actually gets hit
+            audio.fireballHit.play()
+            gsap.to(healthBar, {
+              width: recipient.health + '%'
+            })
+
+            gsap.to(recipient.position, {
+              x: recipient.position.x + 10,
+              yoyo: true,
+              repeat: 5,
+              duration: 0.08
+            })
+
+            gsap.to(recipient, {
+              opacity: 0,
+              repeat: 5,
+              yoyo: true,
+              duration: 0.08
+            })
+            renderedSprites.splice(1, 1)
+          }
+        })
+
+        break
+      case 'Tacleada':
         const tl = gsap.timeline()
 
         let movementDistance = 20

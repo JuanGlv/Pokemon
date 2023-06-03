@@ -1,8 +1,8 @@
 const monsters = {
-  Emby: {
+  Galaviz: {
     position: {
       x: 280,
-      y: 325
+      y: 350
     },
     image: {
       src: './img/embySprite.png'
@@ -12,13 +12,13 @@ const monsters = {
       hold: 30
     },
     animate: true,
-    name: 'Emby',
-    attacks: [attacks.Tackle, attacks.Fireball]
+    name: 'Galaviz',
+    attacks: [attacks.Tacleada, attacks.Llamarada, attacks.Trueno, attacks.Hidrobomba]
   },
-  Draggle: {
+  JuanChuc: {
     position: {
       x: 800,
-      y: 100
+      y: 70
     },
     image: {
       src: './img/draggleSprite.png'
@@ -29,7 +29,7 @@ const monsters = {
     },
     animate: true,
     isEnemy: true,
-    name: 'Draggle',
-    attacks: [attacks.Tackle, attacks.Fireball]
+    name: 'JuanChuc',
+    attacks: [attacks.Tacleada, attacks.Llamarada, attacks.Trueno, attacks.Hidrobomba]
   }
 }

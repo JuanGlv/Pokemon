@@ -1,14 +1,26 @@
 const attacks = {
-  Tackle: {
-    name: 'Tackle',
+  Tacleada: {
+    name: 'Tacleada',
     damage: 10,
     type: 'Normal',
     color: 'black'
   },
-  Fireball: {
-    name: 'Fireball',
+  Llamarada: {
+    name: 'Llamarada',
     damage: 25,
-    type: 'Fire',
+    type: 'Fuego',
     color: 'red'
+  },
+  Hidrobomba: {
+    name: 'Hidrobomba',
+    damage: 25,
+    type: 'Agua',
+    color: 'blue'
+  },
+  Trueno: {
+    name: 'Trueno',
+    damage: 25,
+    type: 'Electrico',
+    color: 'yellow'
   }
 }

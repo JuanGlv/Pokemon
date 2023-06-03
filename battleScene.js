@@ -8,8 +8,8 @@ const battleBackground = new Sprite({
   image: battleBackgroundImage
 })
 
-let draggle
-let emby
+let JuanChuc
+let Galaviz
 let renderedSprites
 let battleAnimationId
 let queue
@@ -21,12 +21,12 @@ function initBattle() {
   document.querySelector('#playerHealthBar').style.width = '100%'
   document.querySelector('#attacksBox').replaceChildren()
 
-  draggle = new Monster(monsters.Draggle)
-  emby = new Monster(monsters.Emby)
-  renderedSprites = [draggle, emby]
+  JuanChuc = new Monster(monsters.JuanChuc)
+  Galaviz = new Monster(monsters.Galaviz)
+  renderedSprites = [JuanChuc, Galaviz]
   queue = []
 
-  emby.attacks.forEach((attack) => {
+  Galaviz.attacks.forEach((attack) => {
     const button = document.createElement('button')
     button.innerHTML = attack.name
     document.querySelector('#attacksBox').append(button)
@@ -36,15 +36,15 @@ function initBattle() {
   document.querySelectorAll('button').forEach((button) => {
     button.addEventListener('click', (e) => {
       const selectedAttack = attacks[e.currentTarget.innerHTML]
-      emby.attack({
+      Galaviz.attack({
         attack: selectedAttack,
-        recipient: draggle,
+        recipient: JuanChuc,
         renderedSprites
       })
 
-      if (draggle.health <= 0) {
+      if (JuanChuc.health <= 0) {
         queue.push(() => {
-          draggle.faint()
+          JuanChuc.faint()
         })
         queue.push(() => {
           // fade back to black
@@ -68,18 +68,18 @@ function initBattle() {
 
       // draggle or enemy attacks right here
       const randomAttack =
-        draggle.attacks[Math.floor(Math.random() * draggle.attacks.length)]
+        JuanChuc.attacks[Math.floor(Math.random() * JuanChuc.attacks.length)]
 
       queue.push(() => {
-        draggle.attack({
+        JuanChuc.attack({
           attack: randomAttack,
-          recipient: emby,
+          recipient: Galaviz,
           renderedSprites
         })
 
-        if (emby.health <= 0) {
+        if (Galaviz.health <= 0) {
           queue.push(() => {
-            emby.faint()
+            Galaviz.faint()
           })
 
           queue.push(() => {
