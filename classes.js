@@ -141,7 +141,7 @@ class Monster extends Sprite {
       case 'Llamarada':
         audio.initFireball.play()
         const LlamaradaImage = new Image()
-        LlamaradaImage.src = './img/fireball.png'
+        LlamaradaImage.src = 'img/fireball.png'
         const Llamarada = new Sprite({
           position: {
             x: this.position.x,
@@ -188,7 +188,7 @@ class Monster extends Sprite {
         case 'Hidrobomba':
         audio.initFireball.play()
         const hidrobombaImage = new Image()
-        hidrobombaImage.src = './img/waterfall.png'
+        hidrobombaImage.src = 'img/waterfall.png'
         const Hidrobomba = new Sprite({
           position: {
             x: this.position.x,
@@ -235,7 +235,7 @@ class Monster extends Sprite {
         case 'Trueno':
         audio.initFireball.play()
         const TruenoImage = new Image()
-        TruenoImage.src = './img/thunderball.png'
+        TruenoImage.src = 'img/thunderball.png'
         const Trueno = new Sprite({
           position: {
             x: this.position.x,
